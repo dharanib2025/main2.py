@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Quality Detection</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="file"] {
+            margin: 15px 0;
+        }
+
+        .btn {
+            background-color: #ff7e5f;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #e76b50;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #222;
+        }
+
+        .result img {
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🍎 Food Quality Detection</h1>
+
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <input type="submit" value="Predict" class="btn">
+    </form>
+
+    <!-- RESULT SECTION -->
+    {% if prediction %}
+    <div class="result">
+        <h3>{{ prediction }}</h3>
+        <p>Confidence: {{ confidence }}%</p>
+
+        {% if image_path %}
+            <img src="{{ url_for('static', filename=image_path) }}" alt="Uploaded Image">
+        {% endif %}
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

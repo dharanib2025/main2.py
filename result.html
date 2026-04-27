@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        img {
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #185a9d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #0f3c6e;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Result: {{ result }}</h1>
+    <img src="{{ img_path }}" width="250">
+    <br>
+    <a href="/" class="btn">Try Another</a>
+</div>
+
+</body>
+</html>
